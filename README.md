@@ -2,12 +2,13 @@
 [![Build Status](https://travis-ci.org/chrisamanse/Changes.svg?branch=master)](https://travis-ci.org/chrisamanse/Changes)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-A Swift framework that computes changes occurred in a `CollectionType`. Inspired by [Changeset](https://github.com/ostestlag/Changeset).
+A Swift framework that computes changes occurred in a `CollectionType`. Inspired by [Changeset](https://github.com/osteslag/Changeset).
 
 Supports iOS and OSX.
 
 # To-do
 
+- [x] Tests with Quick and Nimble
 - [x] Carthage
 - [ ] CocoaPods
 - [ ] Other platforms
