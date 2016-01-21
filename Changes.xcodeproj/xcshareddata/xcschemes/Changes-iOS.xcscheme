@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DF1F384C1C506B180044C90B"
-               BuildableName = "Changes-iOS.framework"
+               BuildableName = "Changes.framework"
                BlueprintName = "Changes-iOS"
                ReferencedContainer = "container:Changes.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DF1F384C1C506B180044C90B"
-            BuildableName = "Changes-iOS.framework"
+            BuildableName = "Changes.framework"
             BlueprintName = "Changes-iOS"
             ReferencedContainer = "container:Changes.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DF1F384C1C506B180044C90B"
-            BuildableName = "Changes-iOS.framework"
+            BuildableName = "Changes.framework"
             BlueprintName = "Changes-iOS"
             ReferencedContainer = "container:Changes.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DF1F384C1C506B180044C90B"
-            BuildableName = "Changes-iOS.framework"
+            BuildableName = "Changes.framework"
             BlueprintName = "Changes-iOS"
             ReferencedContainer = "container:Changes.xcodeproj">
          </BuildableReference>
