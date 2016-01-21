@@ -6,7 +6,7 @@
 //  Copyright © 2016 Joe Christopher Paul Amanse. All rights reserved.
 //
 
-public class ObserverableCollection<T: CollectionType where T.Generator.Element: Equatable, T.Index.Distance == Int> {
+public class ObservableCollection<T: CollectionType where T.Generator.Element: Equatable, T.Index.Distance == Int> {
     public typealias Element = T.Generator.Element
     private var _currentValue: T
     public var currentValue: T {
@@ -43,7 +43,7 @@ public class ObserverableCollection<T: CollectionType where T.Generator.Element:
 }
 
 public protocol ChangeObserver {
-    func observableCollectionWillBeginChanges<T>(observableCollection: ObserverableCollection<T>)
-    func observableCollection<T>(observableCollection: ObserverableCollection<T>, didOccurChange change: Change<T.Generator.Element>)
-    func observableCollectionDidEndChanges<T>(observableCollection: ObserverableCollection<T>)
+    func observableCollectionWillBeginChanges<T>(observableCollection: ObservableCollection<T>)
+    func observableCollection<T>(observableCollection: ObservableCollection<T>, didOccurChange change: Change<T.Generator.Element>)
+    func observableCollectionDidEndChanges<T>(observableCollection: ObservableCollection<T>)
 }
