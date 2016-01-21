@@ -6,7 +6,7 @@
 //  Copyright © 2016 Joe Christopher Paul Amanse. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Changes.
 FOUNDATION_EXPORT double ChangesVersionNumber;
