@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF1F38581C506B180044C90B /* Changes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F384D1C506B180044C90B /* Changes.framework */; };
-		DF1F385D1C506B180044C90B /* ChangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F385C1C506B180044C90B /* ChangesTests.swift */; };
+		DF1F385D1C506B180044C90B /* ChangeEqualitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */; };
 		DF1F38971C506CE90044C90B /* Changes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1F388D1C506CE90044C90B /* Changes.framework */; };
 		DF1F38A71C506D3B0044C90B /* Changes.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1F38A51C506D2D0044C90B /* Changes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF1F38A81C506D3C0044C90B /* Changes.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1F38A51C506D2D0044C90B /* Changes.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,6 +16,7 @@
 		DF1F38AD1C506E130044C90B /* Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AB1C506E130044C90B /* Changes.swift */; };
 		DF1F38B21C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 		DF1F38B31C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
+		DF2F8D841C50857100A2787A /* ChangeEqualitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */; };
 		DF3359561C507BF800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359541C507BF800759F61 /* Nimble.framework */; };
 		DF3359571C507BF800759F61 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359551C507BF800759F61 /* Quick.framework */; };
 		DF33595A1C507C1800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359581C507C1800759F61 /* Nimble.framework */; };
@@ -42,7 +43,7 @@
 /* Begin PBXFileReference section */
 		DF1F384D1C506B180044C90B /* Changes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Changes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1F38571C506B180044C90B /* Changes-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Changes-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF1F385C1C506B180044C90B /* ChangesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesTests.swift; sourceTree = "<group>"; };
+		DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEqualitySpec.swift; sourceTree = "<group>"; };
 		DF1F385E1C506B180044C90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF1F388D1C506CE90044C90B /* Changes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Changes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1F38961C506CE90044C90B /* Changes-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Changes-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				DF33595F1C507D0800759F61 /* Frameworks */,
-				DF1F385C1C506B180044C90B /* ChangesTests.swift */,
+				DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */,
 				DF1F385E1C506B180044C90B /* Info.plist */,
 			);
 			path = ChangesTests;
@@ -367,7 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF1F385D1C506B180044C90B /* ChangesTests.swift in Sources */,
+				DF1F385D1C506B180044C90B /* ChangeEqualitySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2F8D841C50857100A2787A /* ChangeEqualitySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
