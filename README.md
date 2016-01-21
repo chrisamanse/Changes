@@ -10,7 +10,7 @@ Supports iOS and OSX.
 
 - [x] Tests with Quick and Nimble
 - [x] Carthage
-- [ ] CocoaPods
+- [x] CocoaPods
 - [ ] Other platforms
 
 # Installation
