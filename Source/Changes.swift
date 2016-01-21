@@ -197,12 +197,30 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
 }
 
 public extension CollectionType where Generator.Element: Equatable, Index.Distance == Int {
+    /**
+     Get the changes occured in the receiver based on an old value.
+     
+     - Parameters:
+       - oldValue: The old value which the receiver will use to compute for changes
+       - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
+     
+     - Returns: An array of changes occureed in the receiver based on the `oldValue`.
+    */
     public func changesSince(oldValue: Self, reduced: Bool = true) -> [Change<Generator.Element>] {
         return ChangesSummary.changesOf(self, since: oldValue, reduced: reduced)
     }
 }
 
 public extension String {
+    /**
+     Get the changes occured in the `String` based on an old value.
+     
+     - Parameters:
+       - oldValue: The old value which the receiver will use to compute for changes
+       - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
+     
+     - Returns: An array of changes occureed in the receiver based on the `oldValue`.
+    */
     public func changesSince(oldValue: String, reduced: Bool = true) -> [Change<Character>] {
         return characters.changesSince(oldValue.characters, reduced: reduced)
     }
