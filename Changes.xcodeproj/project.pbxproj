@@ -17,6 +17,8 @@
 		DF1F38B21C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 		DF1F38B31C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 		DF2F8D841C50857100A2787A /* ChangeEqualitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */; };
+		DF2F8D861C50870500A2787A /* ChangesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2F8D851C50870500A2787A /* ChangesSpec.swift */; };
+		DF2F8D871C50870500A2787A /* ChangesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2F8D851C50870500A2787A /* ChangesSpec.swift */; };
 		DF3359561C507BF800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359541C507BF800759F61 /* Nimble.framework */; };
 		DF3359571C507BF800759F61 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359551C507BF800759F61 /* Quick.framework */; };
 		DF33595A1C507C1800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359581C507C1800759F61 /* Nimble.framework */; };
@@ -51,6 +53,7 @@
 		DF1F38A61C506D2D0044C90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF1F38AB1C506E130044C90B /* Changes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changes.swift; sourceTree = "<group>"; };
 		DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableCollection.swift; sourceTree = "<group>"; };
+		DF2F8D851C50870500A2787A /* ChangesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesSpec.swift; sourceTree = "<group>"; };
 		DF3359541C507BF800759F61 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		DF3359551C507BF800759F61 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		DF3359581C507C1800759F61 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 			children = (
 				DF33595F1C507D0800759F61 /* Frameworks */,
 				DF1F385C1C506B180044C90B /* ChangeEqualitySpec.swift */,
+				DF2F8D851C50870500A2787A /* ChangesSpec.swift */,
 				DF1F385E1C506B180044C90B /* Info.plist */,
 			);
 			path = ChangesTests;
@@ -368,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2F8D861C50870500A2787A /* ChangesSpec.swift in Sources */,
 				DF1F385D1C506B180044C90B /* ChangeEqualitySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2F8D871C50870500A2787A /* ChangesSpec.swift in Sources */,
 				DF2F8D841C50857100A2787A /* ChangeEqualitySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
