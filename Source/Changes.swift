@@ -177,3 +177,10 @@ public extension CollectionType where Generator.Element: Equatable, Index.Distan
         return ChangesSummary.changesOf(self, since: oldValue, reduced: reduced)
     }
 }
+
+public extension String {
+    public func changesSince(oldValue: String, reduced: Bool = true) -> [Change<Character>] {
+        return characters.changesSince(oldValue.characters, reduced: reduced)
+    }
+}
+

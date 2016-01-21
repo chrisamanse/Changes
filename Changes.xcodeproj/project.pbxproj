@@ -14,8 +14,6 @@
 		DF1F38A81C506D3C0044C90B /* Changes.h in Headers */ = {isa = PBXBuildFile; fileRef = DF1F38A51C506D2D0044C90B /* Changes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF1F38AC1C506E130044C90B /* Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AB1C506E130044C90B /* Changes.swift */; };
 		DF1F38AD1C506E130044C90B /* Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AB1C506E130044C90B /* Changes.swift */; };
-		DF1F38AF1C506E4F0044C90B /* StringChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AE1C506E4F0044C90B /* StringChanges.swift */; };
-		DF1F38B01C506E4F0044C90B /* StringChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AE1C506E4F0044C90B /* StringChanges.swift */; };
 		DF1F38B21C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 		DF1F38B31C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +45,6 @@
 		DF1F38A51C506D2D0044C90B /* Changes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Changes.h; sourceTree = "<group>"; };
 		DF1F38A61C506D2D0044C90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF1F38AB1C506E130044C90B /* Changes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changes.swift; sourceTree = "<group>"; };
-		DF1F38AE1C506E4F0044C90B /* StringChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringChanges.swift; sourceTree = "<group>"; };
 		DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +116,6 @@
 			children = (
 				DF1F38A51C506D2D0044C90B /* Changes.h */,
 				DF1F38AB1C506E130044C90B /* Changes.swift */,
-				DF1F38AE1C506E4F0044C90B /* StringChanges.swift */,
 				DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */,
 				DF1F38A61C506D2D0044C90B /* Info.plist */,
 			);
@@ -301,7 +297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1F38B21C506FBF0044C90B /* ObservableCollection.swift in Sources */,
-				DF1F38AF1C506E4F0044C90B /* StringChanges.swift in Sources */,
 				DF1F38AC1C506E130044C90B /* Changes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1F38B31C506FBF0044C90B /* ObservableCollection.swift in Sources */,
-				DF1F38B01C506E4F0044C90B /* StringChanges.swift in Sources */,
 				DF1F38AD1C506E130044C90B /* Changes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
