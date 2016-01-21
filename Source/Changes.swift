@@ -21,7 +21,7 @@ extension Change: CustomStringConvertible {
         case .Deletion(value: let value, destination: let destination):
             return "Deleted \(value) at index \(destination)"
         case .Substitution(value: let value, destination: let destination):
-            return "Substituted \(value) at index \(destination)"
+            return "Substituted with \(value) at index \(destination)"
         case .Move(value: let value, origin: let origin, destination: let destination):
             return "Moved \(value) from index \(origin) to \(destination)"
         }
