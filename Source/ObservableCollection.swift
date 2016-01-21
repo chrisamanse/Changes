@@ -6,8 +6,6 @@
 //  Copyright © 2016 Joe Christopher Paul Amanse. All rights reserved.
 //
 
-import Foundation
-
 public class ObserverableCollection<T: CollectionType where T.Generator.Element: Equatable, T.Index.Distance == Int> {
     public typealias Element = T.Generator.Element
     private var _currentValue: T
@@ -23,7 +21,7 @@ public class ObserverableCollection<T: CollectionType where T.Generator.Element:
             let oldValue = _currentValue
             _currentValue = newValue
             
-            // Iterate over changes if observer is not nil
+            // Iterate over changes only if observer is not nil
             if let observer = self.observer {
                 let changes = _currentValue.changesSince(oldValue)
                 
