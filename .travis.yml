@@ -13,6 +13,9 @@ matrix:
     - xcode_sdk: macosx10.11
       xcode_scheme: Changes-OSX
       before_install:
+        - pip install codecov
         - brew update
         - brew install carthage
         - carthage bootstrap --platform OSX
+      after_success:
+        - codecov
