@@ -6,5 +6,13 @@ matrix:
   include:
     - xcode_sdk: iphonesimulator9.2
       xcode_scheme: Changes-iOS
+      before_install:
+        - brew update
+        - brew install carthage
+        - carthage bootstrap --platform iOS
     - xcode_sdk: macosx10.11
       xcode_scheme: Changes-OSX
+      before_install:
+        - brew update
+        - brew install carthage
+        - carthage bootstrap --platform OSX
