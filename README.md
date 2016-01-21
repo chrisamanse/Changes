@@ -11,7 +11,7 @@ An iOS Swift framework that computes changes occurred in a `CollectionType`. Ins
 
 # Usage
 
-```
+```swift
 let oldArray = [1,2,3,4,5]
 let newArray = [1,3,2,4]
 
