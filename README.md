@@ -1,5 +1,13 @@
 # Changes
-An iOS Swift framework that computes changes occurred in a `CollectionType`. Inspired by [Changeset](https://github.com/ostestlag/Changeset).
+A Swift framework that computes changes occurred in a `CollectionType`. Inspired by [Changeset](https://github.com/ostestlag/Changeset).
+
+Supports iOS and OSX.
+
+# To-do
+
+- [x] Carthage
+- [ ] CocoaPods
+- [ ] Other platforms
 
 # Installation
 
