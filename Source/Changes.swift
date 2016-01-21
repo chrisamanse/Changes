@@ -6,10 +6,34 @@
 //  Copyright © 2016 Joe Christopher Paul Amanse. All rights reserved.
 //
 
+/**
+  Describes the type of change
+*/
 public enum Change<T: Equatable> {
+    /**
+     A change of type insertion with a `value` that was inserted in the collection and
+     a `destination` where the element was inserted.
+    */
     case Insertion(value: T, destination: Int)
+    
+    /**
+     A change of type deletion with a `value` that was deleted in the collection and
+     a `destination` where the element was deleted.
+     */
     case Deletion(value: T, destination: Int)
+    
+    /**
+     A change of type substitution with a `value` as the new element in the collection and
+     a `destination` where the element was overwritten.
+     For example, changes of `[1,2,3]` since `[1,2,4]` (the old collection), will have a
+     `Substitution` change with `value` 3 (the new value) and `destination` 2 (index starts at 0).
+     */
     case Substitution(value: T, destination: Int)
+    
+    /**
+     A change of type move with a `value` that was moved in the collection, and
+     the element's `origin` and `destination`.
+    */
     case Move(value: T, origin: Int, destination: Int)
 }
 
