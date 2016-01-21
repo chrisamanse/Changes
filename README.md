@@ -5,7 +5,9 @@
 
 A Swift framework that computes changes occurred in a `CollectionType`. Elements of the collection should also conform to `Equatable`. Inspired by [Changeset](https://github.com/osteslag/Changeset).
 
-Supports iOS and OSX.
+**Supports**:
+  - iOS 8.0+
+  - OSX 10.10+
 
 # To-do
 
