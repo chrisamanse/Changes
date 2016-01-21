@@ -11,43 +11,43 @@
 */
 public enum Change<T: Equatable> {
     /**
-     A change of type insertion with a `value` that was inserted in the collection and
+     A change of type insertion with an `element` that was inserted in the collection and
      a `destination` where the element was inserted.
     */
-    case Insertion(value: T, destination: Int)
+    case Insertion(element: T, destination: Int)
     
     /**
-     A change of type deletion with a `value` that was deleted in the collection and
+     A change of type deletion with an `element` that was deleted in the collection and
      a `destination` where the element was deleted.
      */
-    case Deletion(value: T, destination: Int)
+    case Deletion(element: T, destination: Int)
     
     /**
-     A change of type substitution with a `value` as the new element in the collection and
+     A change of type substitution with an `element` as the new element in the collection and
      a `destination` where the element was overwritten.
      For example, changes of `[1,2,3]` since `[1,2,4]` (the old collection), will have a
-     `Substitution` change with `value` 3 (the new value) and `destination` 2 (index starts at 0).
+     `Substitution` change with `element` 3 (the new element) and `destination` 2 (index starts at 0).
      */
-    case Substitution(value: T, destination: Int)
+    case Substitution(element: T, destination: Int)
     
     /**
-     A change of type move with a `value` that was moved in the collection, and
+     A change of type move with a `element` that was moved in the collection, and
      the element's `origin` and `destination`.
     */
-    case Move(value: T, origin: Int, destination: Int)
+    case Move(element: T, origin: Int, destination: Int)
 }
 
 extension Change: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .Insertion(value: let value, destination: let destination):
-            return "Inserted \(value) at index \(destination)"
-        case .Deletion(value: let value, destination: let destination):
-            return "Deleted \(value) at index \(destination)"
-        case .Substitution(value: let value, destination: let destination):
-            return "Substituted with \(value) at index \(destination)"
-        case .Move(value: let value, origin: let origin, destination: let destination):
-            return "Moved \(value) from index \(origin) to \(destination)"
+        case .Insertion(element: let element, destination: let destination):
+            return "Inserted \(element) at index \(destination)"
+        case .Deletion(element: let element, destination: let destination):
+            return "Deleted \(element) at index \(destination)"
+        case .Substitution(element: let element, destination: let destination):
+            return "Substituted with \(element) at index \(destination)"
+        case .Move(element: let element, origin: let origin, destination: let destination):
+            return "Moved \(element) from index \(origin) to \(destination)"
         }
     }
 }
@@ -55,18 +55,18 @@ extension Change: CustomStringConvertible {
 extension Change: Equatable {}
 public func ==<T: Equatable>(lhs: Change<T>, rhs: Change<T>) -> Bool {
     switch (lhs, rhs) {
-    case (.Insertion(value: let value1, destination: let destination1),
-        .Insertion(value: let value2, destination: let destination2)):
-        return value1 == value2 && destination1 == destination2
-    case (.Substitution(value: let value1, destination: let destination1),
-        .Substitution(value: let value2, destination: let destination2)):
-        return value1 == value2 && destination1 == destination2
-    case (.Deletion(value: let value1, destination: let destination1),
-        .Deletion(value: let value2, destination: let destination2)):
-        return value1 == value2 && destination1 == destination2
-    case (.Move(value: let value1, origin: let origin1, destination: let destination1),
-        .Move(value: let value2, origin: let origin2, destination: let destination2)):
-        return value1 == value2 && destination1 == destination2 && origin1 == origin2
+    case (.Insertion(element: let element1, destination: let destination1),
+        .Insertion(element: let element2, destination: let destination2)):
+        return element1 == element2 && destination1 == destination2
+    case (.Substitution(element: let element1, destination: let destination1),
+        .Substitution(element: let element2, destination: let destination2)):
+        return element1 == element2 && destination1 == destination2
+    case (.Deletion(element: let element1, destination: let destination1),
+        .Deletion(element: let element2, destination: let destination2)):
+        return element1 == element2 && destination1 == destination2
+    case (.Move(element: let element1, origin: let origin1, destination: let destination1),
+        .Move(element: let element2, origin: let origin2, destination: let destination2)):
+        return element1 == element2 && destination1 == destination2 && origin1 == origin2
     default:
         return false
     }
@@ -86,22 +86,22 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
             Array(count: newCount + 1, repeatedValue: [])
         )
         
-        // Changes for each index of old value to an empty string
+        // Changes for each index of old collection to an empty string
         var changes: [Change<T.Generator.Element>] = []
         for (row, object) in oldCollection.enumerate() {
-            changes.append(.Deletion(value: object, destination: row))
+            changes.append(.Deletion(element: object, destination: row))
             changesTable[row + 1][0] = changes
         }
         changes.removeAll()
         
-        // Changes for old value as empty string to each index of new value
+        // Changes for old collection as empty string to each index of new collection
         for (column, object) in newCollection.enumerate() {
-            changes.append(.Insertion(value: object, destination: column))
+            changes.append(.Insertion(element: object, destination: column))
             changesTable[0][column + 1] = changes
         }
         changes.removeAll()
         
-        // If either old value or new value is empty, return the row/column which simply consists insertions/deletions
+        // If either old collection or new collection is empty, return the row/column which simply consists of insertions/deletions
         if oldCount == 0 || newCount == 0 {
             return changesTable[oldCount][newCount]
         }
@@ -126,11 +126,11 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
                     // Determine which has minimum changes, then add corresponding change
                     switch minimumCount {
                     case previousRowChanges.count:
-                        currentChanges = previousRowChanges + [.Deletion(value: oldCollection[oldCollectionIndex], destination: row - 1)]
+                        currentChanges = previousRowChanges + [.Deletion(element: oldCollection[oldCollectionIndex], destination: row - 1)]
                     case previousColumnChanges.count:
-                        currentChanges = previousColumnChanges + [.Insertion(value: newCollection[newCollectionIndex], destination: column - 1)]
+                        currentChanges = previousColumnChanges + [.Insertion(element: newCollection[newCollectionIndex], destination: column - 1)]
                     default:
-                        currentChanges = previousRowAndColumnChanges + [.Substitution(value: newCollection[newCollectionIndex], destination: column - 1)]
+                        currentChanges = previousRowAndColumnChanges + [.Substitution(element: newCollection[newCollectionIndex], destination: column - 1)]
                     }
                     
                     // Save current changes to table
@@ -150,11 +150,11 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
     private static func reduceChanges(changes: [Change<T.Generator.Element>]) -> [Change<T.Generator.Element>] {
         return changes.reduce([Change<T.Generator.Element>](), combine: { (var reducedChanges, var currentChange) in
             switch currentChange {
-            case .Insertion(value: let value, destination: let insertionDestination):
+            case .Insertion(element: let element, destination: let insertionDestination):
                 // Find deletion pair
                 var deletionDestination: Int = 0
                 guard let deletionIndex = reducedChanges.indexOf({ change in
-                    if case .Deletion(value: value, destination: let destination) = change {
+                    if case .Deletion(element: element, destination: let destination) = change {
                         // Get deletion destination (origin of move)
                         deletionDestination = destination
                         return true
@@ -167,12 +167,12 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
                 
                 // If deletion pair found, remove deletion and replace current change with Move
                 reducedChanges.removeAtIndex(deletionIndex)
-                currentChange = .Move(value: value, origin: deletionDestination, destination: insertionDestination)
-            case .Deletion(value: let value, destination: let deletionDestination):
+                currentChange = .Move(element: element, origin: deletionDestination, destination: insertionDestination)
+            case .Deletion(element: let element, destination: let deletionDestination):
                 // Find insertion pair
                 var insertionDestination: Int = -1
                 guard let insertionIndex = reducedChanges.indexOf({ change in
-                    if case .Insertion(value: value, destination: let destination) = change {
+                    if case .Insertion(element: element, destination: let destination) = change {
                         // Get insertion destination (destination of move)
                         insertionDestination = destination
                         return true
@@ -185,7 +185,7 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
                 
                 // If insertion pair found, remove insertion and replace current change with Move
                 reducedChanges.removeAtIndex(insertionIndex)
-                currentChange = .Move(value: value, origin: deletionDestination, destination: insertionDestination)
+                currentChange = .Move(element: element, origin: deletionDestination, destination: insertionDestination)
             default:
                 break
             }
@@ -198,13 +198,13 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
 
 public extension CollectionType where Generator.Element: Equatable, Index.Distance == Int {
     /**
-     Get the changes occured in the receiver based on an old value.
+     Get the changes occured in the receiver based on an old collection.
      
      - Parameters:
        - oldCollection: The old collection which the receiver will use to compute for changes
        - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
      
-     - Returns: An array of changes occureed in the receiver based on the `oldValue`.
+     - Returns: An array of changes occureed in the receiver based on the `oldCollection`.
     */
     public func changesSince(oldCollection: Self, reduced: Bool = true) -> [Change<Generator.Element>] {
         return ChangesSummary.changesOf(self, since: oldCollection, reduced: reduced)
@@ -213,13 +213,13 @@ public extension CollectionType where Generator.Element: Equatable, Index.Distan
 
 public extension String {
     /**
-     Get the changes occured in the `String` based on an old value.
+     Get the changes occured in the `String` based on an old collection.
      
      - Parameters:
        - oldCollection: The old collection which the receiver will use to compute for changes
        - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
      
-     - Returns: An array of changes occureed in the receiver based on the `oldValue`.
+     - Returns: An array of changes occureed in the receiver based on the `oldCollection`.
     */
     public func changesSince(oldCollection: String, reduced: Bool = true) -> [Change<Character>] {
         return characters.changesSince(oldCollection.characters, reduced: reduced)

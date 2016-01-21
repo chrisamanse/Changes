@@ -17,10 +17,10 @@ class ChangesSpec: QuickSpec {
             
             it("should have insertions only") {
                 expect("abcd".changesSince(oldValue)).to(
-                    equal([Change.Insertion(value: "a", destination: 0),
-                        Change.Insertion(value: "b", destination: 1),
-                        Change.Insertion(value: "c", destination: 2),
-                        Change.Insertion(value: "d", destination: 3)])
+                    equal([Change.Insertion(element: "a", destination: 0),
+                        Change.Insertion(element: "b", destination: 1),
+                        Change.Insertion(element: "c", destination: 2),
+                        Change.Insertion(element: "d", destination: 3)])
                 )
             }
             
@@ -36,10 +36,10 @@ class ChangesSpec: QuickSpec {
             
             it("should have insertions only") {
                 expect(newValue.changesSince("abcd")).to(
-                    equal([Change.Deletion(value: "a", destination: 0),
-                        Change.Deletion(value: "b", destination: 1),
-                        Change.Deletion(value: "c", destination: 2),
-                        Change.Deletion(value: "d", destination: 3)])
+                    equal([Change.Deletion(element: "a", destination: 0),
+                        Change.Deletion(element: "b", destination: 1),
+                        Change.Deletion(element: "c", destination: 2),
+                        Change.Deletion(element: "d", destination: 3)])
                 )
             }
             
@@ -56,10 +56,10 @@ class ChangesSpec: QuickSpec {
             
             it("should have substitutions only") {
                 expect(newValue.changesSince(oldValue)).to(
-                    equal([Change.Substitution(value: "A", destination: 0),
-                        Change.Substitution(value: "B", destination: 1),
-                        Change.Substitution(value: "C", destination: 2),
-                        Change.Substitution(value: "D", destination: 3)])
+                    equal([Change.Substitution(element: "A", destination: 0),
+                        Change.Substitution(element: "B", destination: 1),
+                        Change.Substitution(element: "C", destination: 2),
+                        Change.Substitution(element: "D", destination: 3)])
                 )
             }
         }
@@ -70,9 +70,9 @@ class ChangesSpec: QuickSpec {
             
             it("should be have substitutions and deletions") {
                 expect(newValue.changesSince(oldValue)).to(
-                    equal([Change.Substitution(value: "k", destination: 0),
-                        Change.Substitution(value: "e", destination: 4),
-                        Change.Deletion(value: "g", destination: 6)])
+                    equal([Change.Substitution(element: "k", destination: 0),
+                        Change.Substitution(element: "e", destination: 4),
+                        Change.Deletion(element: "g", destination: 6)])
                 )
             }
         }
@@ -83,8 +83,8 @@ class ChangesSpec: QuickSpec {
             
             it("should have a move then a deletion") {
                 expect(newValue.changesSince(oldValue)).to(
-                    equal([Change.Move(value: 3, origin: 2, destination: 1),
-                        Change.Deletion(value: 5, destination: 4)])
+                    equal([Change.Move(element: 3, origin: 2, destination: 1),
+                        Change.Deletion(element: 5, destination: 4)])
                 )
             }
         }
@@ -95,7 +95,7 @@ class ChangesSpec: QuickSpec {
             
             it("should have a move then a deletion") {
                 expect(newValue.changesSince(oldValue)).to(
-                    equal([Change.Move(value: 3, origin: 2, destination: 4)])
+                    equal([Change.Move(element: 3, origin: 2, destination: 4)])
                 )
             }
         }
