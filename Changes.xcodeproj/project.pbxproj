@@ -16,6 +16,10 @@
 		DF1F38AD1C506E130044C90B /* Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38AB1C506E130044C90B /* Changes.swift */; };
 		DF1F38B21C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
 		DF1F38B31C506FBF0044C90B /* ObservableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */; };
+		DF3359561C507BF800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359541C507BF800759F61 /* Nimble.framework */; };
+		DF3359571C507BF800759F61 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359551C507BF800759F61 /* Quick.framework */; };
+		DF33595A1C507C1800759F61 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359581C507C1800759F61 /* Nimble.framework */; };
+		DF33595B1C507C1800759F61 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3359591C507C1800759F61 /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		DF1F38A61C506D2D0044C90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF1F38AB1C506E130044C90B /* Changes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changes.swift; sourceTree = "<group>"; };
 		DF1F38B11C506FBF0044C90B /* ObservableCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableCollection.swift; sourceTree = "<group>"; };
+		DF3359541C507BF800759F61 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		DF3359551C507BF800759F61 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		DF3359581C507C1800759F61 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		DF3359591C507C1800759F61 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1F38581C506B180044C90B /* Changes.framework in Frameworks */,
+				DF3359561C507BF800759F61 /* Nimble.framework in Frameworks */,
+				DF3359571C507BF800759F61 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +86,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF1F38971C506CE90044C90B /* Changes.framework in Frameworks */,
+				DF33595A1C507C1800759F61 /* Nimble.framework in Frameworks */,
+				DF33595B1C507C1800759F61 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +117,7 @@
 		DF1F385B1C506B180044C90B /* ChangesTests */ = {
 			isa = PBXGroup;
 			children = (
+				DF33595F1C507D0800759F61 /* Frameworks */,
 				DF1F385C1C506B180044C90B /* ChangesTests.swift */,
 				DF1F385E1C506B180044C90B /* Info.plist */,
 			);
@@ -120,6 +133,18 @@
 				DF1F38A61C506D2D0044C90B /* Info.plist */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		DF33595F1C507D0800759F61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF3359581C507C1800759F61 /* Nimble.framework */,
+				DF3359591C507C1800759F61 /* Quick.framework */,
+				DF3359541C507BF800759F61 /* Nimble.framework */,
+				DF3359551C507BF800759F61 /* Quick.framework */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +194,7 @@
 				DF1F38531C506B180044C90B /* Sources */,
 				DF1F38541C506B180044C90B /* Frameworks */,
 				DF1F38551C506B180044C90B /* Resources */,
+				DF33595D1C507C3900759F61 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,6 +231,7 @@
 				DF1F38921C506CE90044C90B /* Sources */,
 				DF1F38931C506CE90044C90B /* Frameworks */,
 				DF1F38941C506CE90044C90B /* Resources */,
+				DF33595E1C507C8A00759F61 /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +317,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DF33595D1C507C3900759F61 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		DF33595E1C507C8A00759F61 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Nimble.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF1F38481C506B180044C90B /* Sources */ = {
@@ -470,6 +532,10 @@
 		DF1F38651C506B180044C90B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ChangesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrisamanse.ChangesTests;
@@ -480,6 +546,10 @@
 		DF1F38661C506B180044C90B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ChangesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrisamanse.ChangesTests;
@@ -537,6 +607,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ChangesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -551,6 +625,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ChangesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
