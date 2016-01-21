@@ -76,5 +76,28 @@ class ChangesSpec: QuickSpec {
                 )
             }
         }
+        
+        describe("Move changes - backward") {
+            let oldValue = [1,2,3,4,5]
+            let newValue = [1,3,2,4]
+            
+            it("should have a move then a deletion") {
+                expect(newValue.changesSince(oldValue)).to(
+                    equal([Change.Move(value: 3, origin: 2, destination: 1),
+                        Change.Deletion(value: 5, destination: 4)])
+                )
+            }
+        }
+        
+        describe("Move changes - forward") {
+            let oldValue = [1,2,3,4,5]
+            let newValue = [1,2,4,5,3]
+            
+            it("should have a move then a deletion") {
+                expect(newValue.changesSince(oldValue)).to(
+                    equal([Change.Move(value: 3, origin: 2, destination: 4)])
+                )
+            }
+        }
     }
 }
