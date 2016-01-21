@@ -73,12 +73,12 @@ public func ==<T: Equatable>(lhs: Change<T>, rhs: Change<T>) -> Bool {
 }
 
 private class ChangesSummary<T: CollectionType where T.Generator.Element: Equatable, T.Index.Distance == Int> {
-    private static func changesOf(newValue: T, since oldValue: T, reduced: Bool = true) -> [Change<T.Generator.Element>] {
+    private static func changesOf(newCollection: T, since oldCollection: T, reduced: Bool = true) -> [Change<T.Generator.Element>] {
         // Wagner-Fischer algorithm
         
         // Max sizes
-        let oldCount = oldValue.count
-        let newCount = newValue.count
+        let oldCount = oldCollection.count
+        let newCount = newCollection.count
         
         // Empty matrix (2D array which consists of steps required taken to and from indices of each)
         // +1 on both rows and columns to include to/from empty strings steps
@@ -88,14 +88,14 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
         
         // Changes for each index of old value to an empty string
         var changes: [Change<T.Generator.Element>] = []
-        for (row, object) in oldValue.enumerate() {
+        for (row, object) in oldCollection.enumerate() {
             changes.append(.Deletion(value: object, destination: row))
             changesTable[row + 1][0] = changes
         }
         changes.removeAll()
         
         // Changes for old value as empty string to each index of new value
-        for (column, object) in newValue.enumerate() {
+        for (column, object) in newCollection.enumerate() {
             changes.append(.Insertion(value: object, destination: column))
             changesTable[0][column + 1] = changes
         }
@@ -107,13 +107,13 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
         }
         
         // Iterate through the matrix, move by column, then row
-        var oldValueIndex: T.Index
-        var newValueIndex = newValue.startIndex
+        var oldCollectionIndex: T.Index
+        var newCollectionIndex = newCollection.startIndex
         for column in 1...newCount {
-            oldValueIndex = oldValue.startIndex
+            oldCollectionIndex = oldCollection.startIndex
             
             for row in 1...oldCount {
-                if oldValue[oldValueIndex] == newValue[newValueIndex] {
+                if oldCollection[oldCollectionIndex] == newCollection[newCollectionIndex] {
                     changesTable[row][column] = changesTable[row - 1][column - 1]
                 } else {
                     let previousRowChanges = changesTable[row - 1][column] // If least # of steps, current step is Deletion
@@ -126,21 +126,21 @@ private class ChangesSummary<T: CollectionType where T.Generator.Element: Equata
                     // Determine which has minimum changes, then add corresponding change
                     switch minimumCount {
                     case previousRowChanges.count:
-                        currentChanges = previousRowChanges + [.Deletion(value: oldValue[oldValueIndex], destination: row - 1)]
+                        currentChanges = previousRowChanges + [.Deletion(value: oldCollection[oldCollectionIndex], destination: row - 1)]
                     case previousColumnChanges.count:
-                        currentChanges = previousColumnChanges + [.Insertion(value: newValue[newValueIndex], destination: column - 1)]
+                        currentChanges = previousColumnChanges + [.Insertion(value: newCollection[newCollectionIndex], destination: column - 1)]
                     default:
-                        currentChanges = previousRowAndColumnChanges + [.Substitution(value: newValue[newValueIndex], destination: column - 1)]
+                        currentChanges = previousRowAndColumnChanges + [.Substitution(value: newCollection[newCollectionIndex], destination: column - 1)]
                     }
                     
                     // Save current changes to table
                     changesTable[row][column] = currentChanges
                 }
                 
-                oldValueIndex = oldValueIndex.advancedBy(1)
+                oldCollectionIndex = oldCollectionIndex.advancedBy(1)
             }
             
-            newValueIndex = newValueIndex.advancedBy(1)
+            newCollectionIndex = newCollectionIndex.advancedBy(1)
         }
         
         // Combine insertion and deletion pairs into a single move change
@@ -201,13 +201,13 @@ public extension CollectionType where Generator.Element: Equatable, Index.Distan
      Get the changes occured in the receiver based on an old value.
      
      - Parameters:
-       - oldValue: The old value which the receiver will use to compute for changes
+       - oldCollection: The old collection which the receiver will use to compute for changes
        - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
      
      - Returns: An array of changes occureed in the receiver based on the `oldValue`.
     */
-    public func changesSince(oldValue: Self, reduced: Bool = true) -> [Change<Generator.Element>] {
-        return ChangesSummary.changesOf(self, since: oldValue, reduced: reduced)
+    public func changesSince(oldCollection: Self, reduced: Bool = true) -> [Change<Generator.Element>] {
+        return ChangesSummary.changesOf(self, since: oldCollection, reduced: reduced)
     }
 }
 
@@ -216,13 +216,13 @@ public extension String {
      Get the changes occured in the `String` based on an old value.
      
      - Parameters:
-       - oldValue: The old value which the receiver will use to compute for changes
+       - oldCollection: The old collection which the receiver will use to compute for changes
        - reduced: If set to `true`, insertion and deletion pairs will be combined into a `.Move` type. Default is `true`.
      
      - Returns: An array of changes occureed in the receiver based on the `oldValue`.
     */
-    public func changesSince(oldValue: String, reduced: Bool = true) -> [Change<Character>] {
-        return characters.changesSince(oldValue.characters, reduced: reduced)
+    public func changesSince(oldCollection: String, reduced: Bool = true) -> [Change<Character>] {
+        return characters.changesSince(oldCollection.characters, reduced: reduced)
     }
 }
 
