@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:Changes.xcodeproj">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "Metadata">
+      <FileRef
+         location = "group:.swift-version">
+      </FileRef>
+      <FileRef
+         location = "group:.travis.yml">
+      </FileRef>
+      <FileRef
+         location = "group:Changes.podspec">
+      </FileRef>
+      <FileRef
+         location = "group:LICENSE">
+      </FileRef>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+   </Group>
+</Workspace>

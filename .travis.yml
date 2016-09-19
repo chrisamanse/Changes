@@ -1,18 +1,11 @@
-language: objective-c
-xcode_project: Changes.xcodeproj
-osx_image: xcode7.2
-
-matrix:
-  include:
-    - xcode_sdk: iphonesimulator9.2
-      xcode_scheme: Changes-iOS
-      before_install:
-        - brew update
-        - brew install carthage
-        - carthage bootstrap --platform iOS
-    - xcode_sdk: macosx10.11
-      xcode_scheme: Changes-OSX
-      before_install:
-        - brew update
-        - brew install carthage
-        - carthage bootstrap --platform OSX
+os:
+  - linux
+  - osx
+language: generic
+sudo: required
+dist: trusty
+osx_image: xcode8
+install:
+  - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
+script:
+  - swift test
