@@ -3,7 +3,7 @@
 ![Swift Version](https://img.shields.io/badge/swift-3.0-orange.svg)
 [![spm compatible](https://img.shields.io/badge/spm-compatible-4BC51D.svg?style=flat)](https://github.com/apple/swift-package-manager)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg)](https://github.com/CocoaPods/CocoaPods)
+[![CocoaPods compatible](https://img.shields.io/cocoapods/v/Changes.svg)](https://github.com/CocoaPods/CocoaPods)
 ![Platform](https://img.shields.io/badge/platform-ios%20%7C%20macos%20%7C%20tvos%20%7C%20watchos%20%7C%20linux-lightgrey.svg)
 
 A Swift framework that computes changes occurred in a `CollectionType`. Elements of the collection should also conform to `Equatable`. Inspired by [Changeset](https://github.com/osteslag/Changeset).
