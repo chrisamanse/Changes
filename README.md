@@ -15,7 +15,7 @@ A Swift framework that computes changes occurred in a `CollectionType`. Elements
 - **CocoaPods**
   - Add `pod "Changes"` in your `Podfile`
 - **Swift Package Manager**
-  - Add `.Target(url: "https://github.com/chrisamanse/Changes.git, majorVersion: 2)` in dependencies
+  - Add `.Package(url: "https://github.com/chrisamanse/Changes.git, majorVersion: 2)` in dependencies
 - **Manual**
   - Add this project as a subproject of your Xcode project
   - Or simply copy the source files
