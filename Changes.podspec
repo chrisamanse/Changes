@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "10"
 
   s.source        = { :git => "https://github.com/chrisamanse/Changes.git", :tag => "#{s.version}" }
-  s.source_files  = "Source", "Source/**/*.{h,swift}"
+  s.source_files  = "Sources", "Sources/**/*.{h,swift}"
   s.requires_arc  = true
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 end
