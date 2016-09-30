@@ -46,7 +46,7 @@ extension Change: Equatable {
         case (.Move(let x), .Move(let y)):
             return x == y
         default:
-            return true
+            return false
         }
     }
 }
