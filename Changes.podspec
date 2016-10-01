@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Changes"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "A Swift framework that computes changes occurred in a `Collection`"
   s.description  = "A Swift framework that computes changes occurred in a `Collection`. Elements of the collection should conform to `Equatable`."
 
